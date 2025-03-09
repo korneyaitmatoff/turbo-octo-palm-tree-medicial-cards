@@ -3,9 +3,10 @@ from datetime import datetime
 from sqlalchemy import (
     Column, Integer, DateTime, ForeignKey, Text
 )
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
 
-Base = declarative_base()
+from src.database import Base
+
 
 
 class Appointment(Base):

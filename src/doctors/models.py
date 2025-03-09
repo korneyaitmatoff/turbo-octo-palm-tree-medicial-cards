@@ -1,10 +1,10 @@
 from sqlalchemy import (
     Column, Integer, String, DateTime
 )
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
 from datetime import datetime
 
-Base = declarative_base()
+from src.database import Base
 
 
 class Doctor(Base):
