@@ -11,24 +11,22 @@ jobs:
         python-version: [ "pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13" ]
     steps:
       - uses: actions/checkout@v4
-      - name: Install dependencies
-        run: pip install ruff
-      - name: Run ruff
-        run: ruff check ./src
+      - name: Ruff
+        run: |
+          pip install ruff
+          ruff check ./src
   test:
     name: Test
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [ "pypy3.10", "3.9", "3.10", "3.11", "3.12", "3.13" ]
+        python-version: [ "3.12" ]
     steps:
       - uses: actions/checkout@v4
-      - name: Build image
-        run: docker build . -t turbo_octo_palm_tree_medicial_cards
-      - name: Build
-        run: docker compose up -d
-      - name: Install dependencies
-        run: pip install pytest
-      - name: Run tests
-        run: pytest tests
+      - name: Test
+        run: |
+          docker build . -t turbo_octo_palm_tree_medicial_cards
+          docker compose up -d
+          pip install pytest
+          pytest tests
       
