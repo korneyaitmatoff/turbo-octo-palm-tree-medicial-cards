@@ -2,7 +2,7 @@ version: '3.8'
 services:
   turbo_octo_palm_tree_medicial_cards:
     container_name: turbo_octo_palm_tree_medicial_cards
-    image: octo-api
+    image: turbo_octo_palm_tree_medicial_cards
     ports:
       - "8000:8000"
     networks:
